@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
         <div className="drawer ">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle " />
 
-          <div className="drawer-content container flex flex-col">
+          <div className="drawer-content   flex flex-col">
             <div className="overflow-y-auto  flex flex-col ">
               <Navbar />
 
