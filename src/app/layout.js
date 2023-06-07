@@ -19,9 +19,9 @@ export default function RootLayout({ children }) {
           <input id="my-drawer-3" type="checkbox" className="drawer-toggle " />
 
           <div className="drawer-content bgImg  h-full  flex flex-col">
-            <div className=" flex h-full flex-col ">
+            <div className=" flex  flex-col ">
                 <Navbar />
-                <main className="h-full bg-base-200  ">{children}</main>
+                <main className=" bg-base-200   ">{children}</main>
                 <Footer />
             </div>
           </div>

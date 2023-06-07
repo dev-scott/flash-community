@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'hero-pattern': "url('/img/bgHero.jpg')",
+        "hero-pattern": "url('/public/img/bgHero.jpg')",
         // 'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         // 'gradient-conic':
         //   'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
