@@ -7,6 +7,10 @@ import Logo from "public/img/logo.png";
 import Link from "next/link";
 import { themeChange } from "theme-change";
 
+import { motion } from "framer-motion";
+import { navVariants } from "@/utils/motion";
+
+
 const Navbar = () => {
   const [currentTheme, setCurrentTheme] = useState(null);
 
@@ -30,7 +34,10 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className=" max-w-screen-2xl mx-auto px-4 sm:px-6  py-2 w-full flex items-center justify-between  ">
+    <div className=" w-full bg-base-300 ">
+
+
+    <div className="  max-w-screen-2xl mx-auto px-4 sm:px-6  py-2 w-full flex items-center justify-between  ">
       <div>
         <div>
           {" "}
@@ -43,8 +50,8 @@ const Navbar = () => {
           />{" "}
         </div>
       </div>
-      <div>
-        <ul className=" hidden  menu bg-base-200 lg:menu-horizontal rounded-box">
+      <motion.div  className="" variants={navVariants} initial="hidden" whileInView="show" >
+        <ul className=" hidden  menu bg-base-200 lg:menu-horizontal text-base-content rounded-box">
           <li>
             <Link href="/blog">
               <svg
@@ -92,9 +99,9 @@ const Navbar = () => {
             </Link>
           </li>
         </ul>
-      </div>
+      </motion.div>
 
-      <div className="flex items-center ">
+      <div className="flex items-center text-base-content ">
         <div className="login flex items-center  lg:flex ">
           <label className="swap swap-rotate">
             {/* this hidden checkbox controls the state */}
@@ -131,6 +138,9 @@ const Navbar = () => {
         </div>
       </div>
     </div>
+
+    </div>
+
   );
 };
 

@@ -14,18 +14,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className=" h-full relative bgImg bg-{hero-pattern} ">
         <div className="drawer ">
-        <input id="my-drawer-3" type="checkbox" className="drawer-toggle " />
+          <input id="my-drawer-3" type="checkbox" className="drawer-toggle " />
 
-          <div className="drawer-content   flex flex-col">
-            <div className="overflow-y-auto  flex flex-col ">
-              <Navbar />
-
-              <div className="overflow-y-auto">
-                <main>{children}</main>
+          <div className="drawer-content bgImg  h-full  flex flex-col">
+            <div className=" flex h-full flex-col ">
+                <Navbar />
+                <main className="h-full bg-base-200  ">{children}</main>
                 <Footer />
-              </div>
             </div>
           </div>
 
@@ -35,7 +32,6 @@ export default function RootLayout({ children }) {
               <Navlinks />
             </ul>
           </div>
-
         </div>
       </body>
     </html>
