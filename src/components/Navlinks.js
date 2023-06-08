@@ -5,6 +5,8 @@ function Navlinks(){
     return(
         <>
 
+        
+
 <ul className="   menu bg-base-200 lg:menu-vertical rounded-box">
           <li>
             <a>
