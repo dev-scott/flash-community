@@ -6,22 +6,20 @@ import Image from "next/image";
 
 async function getData(){
 
-  const res = await fetch("http://localhost:3000/api/posts" , {
-
-  cache:"no-store",
-
-
-  } );
+  const res = await fetch("htps://localhost:3000/api/posts",{
+    cache:"no-cache"
+  });
 
   if(!res.ok){
-    throw new Error("Failed");
-
+    throw new Error("Failed to fetch data");
   }
 
-  return res.json();
+  const data = await res.json();
+
+  return data;
+
 
 }
-
 
 const Blog = async () => {
   return (

@@ -129,7 +129,7 @@ const Navbar = () => {
             </svg>
           </label>
 
-          <button className=" ml-2 btn btn-ghost"> <Link href="/dashboard" > Login / Dashboard </Link> </button>
+          <button className=" ml-2 btn btn-ghost"> <Link href="/login" > Login </Link> </button>
         </div>
 
         <div className="flex-none lg:hidden">

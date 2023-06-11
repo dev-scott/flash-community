@@ -5,6 +5,7 @@ import Footer from "@/components/footer/Footer";
 import Navlinks from "@/components/Navlinks";
 import AuthProvider from "@/components/AuthProvider/AuthProvider";
 
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {

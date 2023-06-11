@@ -13,6 +13,7 @@ import Image from "next/image";
 const Dashboard = () => {
   
   const session = useSession();
+  console.log(session)
 
   const router = useRouter();
 
@@ -29,7 +30,7 @@ const Dashboard = () => {
   }
 
   if(session.status="unauthenticated"){
-    router?.push("/dashboard/login");
+    router?.push("/login");
   }
 
   const handleSubmit = async (e)=>{
