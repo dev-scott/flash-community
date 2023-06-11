@@ -4,8 +4,51 @@ import React from "react";
 import { motion } from "framer-motion";
 import EarthCanvas from "@/components/canvas/Earth";
 import { slideIn } from "@/utils/motion";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const Register = () => {
+
+  const [error , setError] = useState(null)
+
+  const router = useRouter();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const name = e.target[0].value;
+    const email = e.target[1].value;
+    const password = e.target[2].value;
+
+    const res = await fetch("/api/auth/register",{
+      method:"POST",
+      headers:{
+        "content-type":"apllication/json",
+
+      },
+      body:JSON.stringify({
+        name,email,password
+      }),
+    })
+
+    res.status ===200 && router.push("/login")
+
+
+    try{
+
+
+
+
+    }catch(error){
+
+
+      setError(error)
+      console.log(err)
+    }
+
+
+  };
+
   return (
     <div className="w-full ">
       <div
@@ -25,27 +68,30 @@ const Register = () => {
           <form
             // ref={formRef}
             // onSubmit={handleSubmit}
+            onSubmit={handleSubmit}
             className="mt-12 flex flex-col gap-8"
           >
             <label className="flex flex-col">
-              <span className="text-white font-medium mb-4">Your Email</span>
+              <span className="text-white font-medium mb-4">Your name</span>
               <input
                 type="text"
                 name="name"
+                required
                 // value={form.name}
                 // onChange={handleChange}
-                placeholder="What's your web address?"
+                placeholder="What's your name?"
                 className="bg-base-200 py-4 px-6 placeholder:text-base-content text-white rounded-lg outline-none   border-2 font-medium"
               />
             </label>
             <label className="flex flex-col">
-              <span className="text-white font-medium mb-4">Your Password</span>
+              <span className="text-white font-medium mb-4">Your Email</span>
               <input
                 type="email"
                 name="email"
+                required
                 // value={form.email}
                 // onChange={handleChange}
-                placeholder="What's your password ?"
+                placeholder="What's your Email ?"
                 className="bg-base-200  py-4 px-6 placeholder:text-base-content text-white rounded-lg outline-none  border-2 font-medium"
               />
             </label>
@@ -54,6 +100,7 @@ const Register = () => {
               <input
                 type="password"
                 name="password"
+                required
                 // value={form.email}
                 // onChange={handleChange}
                 placeholder="What's your password ?"
@@ -78,7 +125,7 @@ const Register = () => {
             >
               Login
             </button>
-      
+            {error && <p className="text-red-500">{error.message}</p>}
           </form>
         </motion.div>
 

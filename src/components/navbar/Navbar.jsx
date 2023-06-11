@@ -6,12 +6,17 @@ import Image from "next/image";
 import Logo from "public/img/logo.png";
 import Link from "next/link";
 import { themeChange } from "theme-change";
+import { signOut, useSession } from "next-auth/react";
 
 import { motion } from "framer-motion";
 import { navVariants } from "@/utils/motion";
 
 
 const Navbar = () => {
+
+  const session = useSession();
+  console.log(session);
+
   const [currentTheme, setCurrentTheme] = useState(null);
 
   const logOut = () => {};
@@ -129,7 +134,19 @@ const Navbar = () => {
             </svg>
           </label>
 
-          <button className=" ml-2 btn btn-ghost"> <Link href="/login" > Login </Link> </button>
+{session.status ==="authenticated" && (
+
+
+  <button className=" ml-2 btn btn-ghost" onClick={signOut} >  Logout  </button>
+  
+  )}
+
+{session.status ==="unauthenticated" && (
+
+
+  <button className=" ml-2 btn btn-ghost"> <Link href="/login" > login </Link> </button>
+
+)}
         </div>
 
         <div className="flex-none lg:hidden">
