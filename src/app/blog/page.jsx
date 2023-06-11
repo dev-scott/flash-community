@@ -1,9 +1,53 @@
-import React from 'react'
+import React from "react";
+import styles from "./page.module.css"
+import Link from "next/link"
+import Image from "next/image";
 
-const Blog = () => {
-  return (
-    <div>Blog</div>
-  )
+
+async function getData(){
+
+  const res = await fetch("http://localhost:3000/api/posts" , {
+
+  cache:"no-store",
+
+
+  } );
+
+  if(!res.ok){
+    throw new Error("Failed");
+
+  }
+
+  return res.json();
+
 }
 
-export default Blog
+
+const Blog = async () => {
+  return (
+    <div className="w-full bg-hero-pattern">
+      <div className=" bg-base-300 relative  mt-8  h-[800px] rounded-xl   py-4  max-w-screen-2xl  mx-auto px-4   ">
+      <div className={styles.mainContainer}>
+      {data.map((item) => (
+        <Link href={`/blog/${item._id}`} className={styles.container} key={item.id}>
+          <div className={styles.imageContainer}>
+            <Image
+              src={item.img}
+              alt=""
+              width={400}
+              height={250}
+              className={styles.image}
+            />
+          </div>
+          <div className={styles.content}>
+            <h1 className={styles.title}>{item.title}</h1>
+            <p className={styles.desc}>{item.desc}</p>
+          </div>
+        </Link>
+      ))}
+    </div>      </div>
+    </div>
+  );
+};
+
+export default Blog;

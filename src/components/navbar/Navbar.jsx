@@ -40,14 +40,15 @@ const Navbar = () => {
     <div className="  max-w-screen-2xl mx-auto px-4 sm:px-6  py-2 w-full flex items-center justify-between  ">
       <div>
         <div>
-          {" "}
+          <Link href="/" >
           <Image
             className="rounded-full"
             src={Logo}
             alt="Picture of the author"
             width={50}
             height={50}
-          />{" "}
+          />
+          </Link>
         </div>
       </div>
       <motion.div  className="" variants={navVariants} initial="hidden" whileInView="show" >
@@ -128,7 +129,7 @@ const Navbar = () => {
             </svg>
           </label>
 
-          <button className=" ml-2 btn btn-ghost">login</button>
+          <button className=" ml-2 btn btn-ghost"> <Link href="/dashboard" > Login / Dashboard </Link> </button>
         </div>
 
         <div className="flex-none lg:hidden">
