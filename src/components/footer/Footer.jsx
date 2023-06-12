@@ -95,7 +95,7 @@ const Footer = () => {
 
     <footer className="w-full bg-base-200">
       <motion.footer
-        className="  py-6 relative max-w-screen-2xl mx-auto px-16 "
+        className="  py-6 relative max-w-screen-2xl mx-auto px-10 "
         variants={footerVariants}
         initial="hidden"
         whileInView="show"
