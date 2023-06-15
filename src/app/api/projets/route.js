@@ -1,4 +1,8 @@
-import Projet from "@/models/Projet";
+// import Projet from "@/models/Projet";
+
+import { Projet } from "@/utils/db";
+
+
 import connect from "@/utils/db"
 import { NextResponse } from "next/server";
 

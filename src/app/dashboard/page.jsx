@@ -13,7 +13,7 @@ import Image from "next/image";
 const Dashboard = () => {
   
   const session = useSession();
-  console.log(session)
+  // console.log(session)
 
   const router = useRouter();
 

@@ -1,6 +1,39 @@
-import mongoose from "mongoose";
 
-const { Schema } = mongoose;
+
+
+import mongoose from "mongoose";
+import { Schema } from "mongoose";
+
+
+
+const ProjetSchema = new Schema(
+    
+  {
+      title: {
+        type: String,
+        required: true,
+      },
+      desc: {
+        type: String,
+        required: true,
+      },
+      img: {
+        type: String,
+        required: true,
+      },
+      content: {
+        type: String,
+        required: true,
+      },
+      username: {
+        type: String,
+        required: true,
+      },
+    },
+    { timestamps: true }
+
+
+)
 
 const UserSchema = new Schema(
   {
@@ -21,6 +54,11 @@ const UserSchema = new Schema(
   },
   { timestamps: true }
 );
+
+
+// export default mongoose.model("Projet",projetSchema);
+
+export const Projet = mongoose.models.Projet || mongoose.model("Projet" , ProjetSchema);
 
 export const User = mongoose.models.User || mongoose.model('User', UserSchema);
 
